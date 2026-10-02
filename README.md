@@ -1,27 +1,38 @@
-# 🏋️ Sistema de Gestión para Gimnasios y Clubes Deportivos
+# 👟 Flow Zapas - Sistema Gestor de Stock, Facturación y Ventas
 
-Un sistema de escritorio diseñado para automatizar y optimizar la administración de socios, membresías y el control de acceso en centros de entrenamiento.
+## 📌 Descripción del Proyecto
+*Flow Zapas* es un sistema integral de gestión comercial desarrollado para optimizar la administración de inventario, ventas y facturación en negocios del rubro calzado e indumentaria.
 
-## 🎯 El Problema
+El mayor desafío técnico de este dominio radica en la *gestión multidimensional de inventario* (un mismo modelo se fracciona en múltiples variantes por talle, color y SKU único), requiriendo un control de stock atómico para evitar inconsistencias tanto en venta física como digital.
 
-En la actualidad, muchos establecimientos deportivos gestionan sus socios mediante anotaciones manuales, planillas desarticuladas o memoria del personal. Esta metodología informal genera:
+---
 
-* ❌ **Inconsistencias** en el registro de fechas de vencimiento.
-* ❌ **Morosidad inadvertida** por la falta de alertas en tiempo real.
-* ❌ **Cuellos de botella** e ineficiencia en el ingreso durante horas pico.
-* ❌ **Descuadres de caja** entre lo cobrado y los reportes al final de la jornada.
+## 🏗️ Arquitectura y Tecnologías
 
-### ¿A quién afecta?
-* 🏢 **Dueños y Administradores:** Sufren pérdidas económicas por entrenamientos con cuotas vencidas y carecen de visibilidad financiera real del negocio.
-* 🧑‍💼 **Personal de Recepción:** Realizan una labor lenta e ineficiente al no tener una forma ágil de verificar estados de cuenta o registrar cobranzas.
+El sistema está desarrollado en *.NET 8 (C#)* aplicando principios de *Clean Architecture* (Arquitectura en Capas) para garantizar mantenibilidad, testabilidad y escalabilidad:
 
-## 💡 La Solución (Objetivo del Proyecto)
+1. *FlowZapas.Domain*: Entidades core del negocio (Product, ProductVariant, Sale, Invoice, Customer) e interfaces base.
+2. *FlowZapas.Data: Persistencia relacional mediante **Entity Framework Core, implementación del patrón *Repository y Unit of Work.
+3. *FlowZapas.Business*: Lógica de negocio, validaciones transaccionales y transferencia de datos mediante DTOs.
+4. *FlowZapas.Api*: Capa de presentación RESTful con ASP.NET Core y documentación interactiva mediante Swagger.
 
-Desarrollar e implementar un sistema de escritorio para la gestión integral que elimine el chequeo manual y centralice el control de accesos y cobranzas.
+---
 
-## ✨ Características Principales
+## 🛠️ Patrones de Diseño Aplicados
+- *Clean Architecture / N-Tier:* Separación estricta de responsabilidades.
+- *Repository & Unit of Work:* Abstracción de la capa de datos y control atómico de transacciones.
+- *Strategy Pattern:* Implementación flexible de métodos de pago (Efectivo, Transferencia, Posnet) y políticas de facturación.
+- *DTOs (Data Transfer Objects):* Aislamiento entre el modelo de dominio y la capa de exposición API.
 
-* 🚦 **Semáforo de Accesos:** Identificación visual e inmediata de la condición del socio (activo, por vencer o vencido) mediante validación automática de fechas.
-* 🔒 **Seguridad por Roles:** Restricción de acciones administrativas y sensibles dependiendo del rol del usuario en el sistema.
-* 💾 **Backups Automáticos:** Resguardo garantizado de los registros transaccionales con copias de seguridad automáticas al cierre de cada día.
-* 📊 **Reportes Estratégicos:** Generación de reportes periódicos de recaudación e ingresos de socios para optimizar la toma de decisiones.
+---
+
+## 🚀 Módulos del Sistema
+- [x] *Gestión de Stock y Calzado:* Control por modelo, talle, color y SKU con alertas de stock mínimo.
+- [x] *Módulo de Ventas:* Registro transaccional de operaciones con validación previa de stock.
+- [x] *Módulo de Facturación:* Emisión de comprobantes y trazabilidad de historial de caja.
+- [x] *Reportes:* Estadísticas de modelos más vendidos y métricas comerciales.
+
+---
+
+## 👥 Integrantes del Equipo
+- Trabajo Integrador / Colaborativo de Programación y Metodologías.
